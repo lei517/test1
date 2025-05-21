@@ -1,0 +1,6 @@
+- run: |  
+    coverage=$(cat coverage/lcov.info | grep "TOTAL" | awk '{print $3}')  
+    if [[ $coverage -lt 80 ]]; then  
+      echo "覆盖率不足，禁止合并！"  
+      exit 1  
+    fi  
